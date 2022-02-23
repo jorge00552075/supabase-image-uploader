@@ -7,5 +7,3 @@ const Home = function () {
 };
 
 export default Home;
-// UploadImg
-// DisplayImg
