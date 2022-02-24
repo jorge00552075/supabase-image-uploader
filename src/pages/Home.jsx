@@ -26,3 +26,5 @@ const Home = function () {
 };
 
 export default Home;
+// add loading spinner
+// add css variables
