@@ -3,7 +3,7 @@ import { supabase } from '../supabaseClient';
 const uploadMediaFile = async function (mediaFile, fn) {
   const { data, error } = await supabase.storage
     .from('image')
-    .upload(`${Date.now()}_${mediaFile.name}`);
+    .upload(`${Date.now()}_${mediaFile.name}`, mediaFile);
 
   if (error) {
     console.error(error);

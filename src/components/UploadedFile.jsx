@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { ReactComponent as CheckCircle } from '../assets/check-circle.svg';
 
-const UploadedFile = function ({ file: { path, name } }) {
+const UploadedFile = function ({ publicURL, name }) {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleClick = async function () {
-    await navigator.clipboard.writeText();
+    await navigator.clipboard.writeText(publicURL);
     setIsCopied(true);
   };
 
@@ -17,11 +17,11 @@ const UploadedFile = function ({ file: { path, name } }) {
       </header>
 
       <div>
-        <img src={path} alt={name} />
+        <img src={publicURL} alt={name} />
       </div>
 
       <div>
-        <input value={path} readOnly placeholder="✏️" id="copyText" />
+        <input value={publicURL} readOnly id="copyText" />
         <button onClick={handleClick}>
           {isCopied ? 'Copied' : 'Copy Link'}
         </button>

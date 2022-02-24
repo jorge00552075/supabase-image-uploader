@@ -1,40 +1,23 @@
 import { useState } from 'react';
 import FileToUpload from '../components/FileToUpload.jsx';
 import UploadedFile from '../components/UploadedFile.jsx';
+import uploadMediaFile from '../utils/uploadMediaFile';
 
 const Home = function () {
-  const [uploadedFile, setUploadedFile] = useState(null);
-
-  const uploadFile = async function (file) {
-    const body = new FormData();
-    body.append('file', file);
-
-    try {
-      const response = await fetch('http://localhost:8001/upload', {
-        method: 'POST',
-        body,
-      });
-
-      const { fileName, filePath } = await response.json();
-      setUploadedFile({ fileName, filePath });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const [mediaFile, setMediaFile] = useState(null);
 
   const handleDrop = function (file) {
-    uploadFile(file);
+    uploadMediaFile(file, setMediaFile);
   };
 
   const handleChange = function (event) {
-    uploadFile(event.target.files[0]);
-    // console.log(URL.createObjectURL(event.target.files[0]));
+    uploadMediaFile(event.target.files[0], setMediaFile);
   };
 
   return (
     <main>
-      {uploadedFile ? (
-        <UploadedFile />
+      {mediaFile ? (
+        <UploadedFile publicURL={mediaFile.publicURL} name={mediaFile.name} />
       ) : (
         <FileToUpload handleChange={handleChange} handleDrop={handleDrop} />
       )}
