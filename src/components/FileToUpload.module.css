@@ -1,6 +1,6 @@
 .card {
   width: 40rem;
-  min-height: 47rem;
+  height: 47rem;
   margin: 9.6rem auto 0;
   padding: 3.2rem;
   background: #ffffff;
@@ -42,7 +42,7 @@
   align-items: center;
   justify-content: center;
   gap: 2.4rem;
-  min-height: 22rem;
+  height: 22rem;
   margin-top: 2.8rem;
   background: #f4f4f5;
   outline: 2px dashed rgba(59, 130, 246, 0.5);
