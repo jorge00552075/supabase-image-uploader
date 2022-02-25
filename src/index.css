@@ -35,7 +35,7 @@ Borders
 
 Effects
 - box shadow
-  0 4px 6px -1px rgba(0, 0, 0, 0.1)
+  0 10px 15px -3px rgba(0, 0, 0, 0.1) // shadow-lg
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -111,7 +111,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  background: #fafafa;
+  background: #f4f4f5;
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
